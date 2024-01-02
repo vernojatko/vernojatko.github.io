@@ -1,176 +1,222 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>originalpidor</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script>
-setButtonImage('');  
-    </script>  
-<style type="text/css">
-* {
-    /*默认文字颜色*/
-    color: #000;
-    font-size: 13px;
-    font-family: Arial, sans-serif;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-*:not(input,checkbox,textarea) {
-    /*禁止文本选择*/
-   -webkit-touch-callout: none;
-   -webkit-user-select: none;
-   user-select: none; /* Non-prefixed version, currently */
-}
-  .lan02 {
-        font-weight: 500;
-        position: relative;
-        font-size: 15px;
-        top: 10px;
-        left: 0px;
-      }    
-html,body{
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
+  
+  <script>
+    
+    setWindowRect(47, 30, 600, 600);
+    setWindowDrag(0, 0, 400, 80);
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
-.popup_container {
-    position:absolute;
-    z-index: 1000;
-    left:50%;
-    top:0;
+document.getElementById("defaultOpen").click();
+dragElement(document.getElementById(("menu")));
+
+
+  </script>
+  
+  <style>
+    
+    html {
+      background: none;
+}
+    
+    #FXL {
+      color: white;
+      font-family: Arial, black;
+      border-radius: 5px;
+      width: 350px;
+      height: 200px;
+      background: rgb(28, 28, 28, 95%);
+}
+    
+    
+    #EspHack {
+      color: white;
+      font-family: Arial, black;
+      border-radius: 5px;
+      width: 350px;
+      height: 200px;
+      background: transparent;
+    }
+    #FxTitle {
+      width: 350px;
+      height: 15px;
+      font-family: Arial, black;
+      font-size: 70%;
+      color: white;
+      background: #173c57;
+      border-radius: 5px;
+      position: absolute;
+      top: 7.5px;
+}
+    
+    .tablinks {
+      position: relative;
+      top: 2px;
+      left: 10px;
+      color: white;
+      width: 75px;
+      height: 30px;
+      background: #173c57;
+      border: none;
+      border-radius: 3px;
+      margin-bottom: 5px;
+}
+    
+    .title {
+      position: relative;
+      top: -7px;
+      left: 10px;
+      font-family: Arial, black;
+      font-size: 70%;
+      color: white;
+}
+    
+    .window {
+      position: relative;
+      top: -3.5px;
+}
+   
+    #scroller {
+      position: relative;
+      top: -175px;
+      left: 105px;
+      width: 230px;
+      height: 170px;
+      border-radius: 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: none;
+}
+    
+    a {
+      color: white;
+}
+    
+    .sons {
+      border: none;
+      margin-top: -3px;
+      color: white;
+      width: 200px;
+      height: 25px;
+      background: none;
+}
+    
+    .arcane {
+      position: relative;
+            left: -45px;
+      top: -5px;
+      color: #d80000;
+}
+    
+    .legendary {
+      position: relative;
+            left: -45px;
+      top: -5px;
+      color: #ff2af8;
+}
+    
+    .epic {
+      position: relative;
+            left: -45px;
+      top: -5px;
+      color: #7f00dc;
+}
+    
+    .rare {
+      position: relative;
+      left: -45px;
+      top: -5px;
+      color: blue;
+}
+    
+    .uncommon {
+      position: relative;
+      left: -45px;
+      top: -5px; 
+      color: #acd7ff;
+}
+    
+    .common {
+      position: relative;
+      left: -45px;
+      top: -5px;
+      color: gray;
+}
+    
+    #skinselect {
+      background: #173c57;
+      width: 70px;
+      height: 170px;
+      border-radius: 4px;
+visibility: hidden;
+}
+    
+ #skinchanger {
+      background: #173c57;
+      width: 350px;
+      height: 170px;
+      border-radius: 4px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+      left: -10px;
+      top: -170px;
+}
+    
+    .yes {
+      position: relative;
+      top:15px;
 }
 
-#H5AlertView {
-    width:450px;
-    height:300px;
-    position:absolute;
-    left:-225px; top:50px;
-    text-align:left;
-    zoom:0.8;
+    .yea {
+      background: red;
+      width: 70px;
+      height: 20px;
+      position: relative;
+      left: 15px;
 }
-
-#title-text{
-padding-top:0px;
-font-size:18px;
-color: #494949;
-}
-
-#info-text{
-padding:10px;
-color:#494949;
-}
-
-#content-view{
-z-index:0;
-background: #fff;
-position: relative;
-top: 0px;
-border: 1px solid #E8E8E8;
-border-radius:5px;
-padding: 10px;
-}
-      .switch-btn {
-        cursor: pointer;
-        width: 50px;
-        height: 30px;
-        position: relative;
-        top: 3px;
-        right: 1px;
-        border: 0px solid #dfdfdf;
-        background-color: #e9e9e9;
-        box-shadow: #dfdfdf 0 0 0 0 inset;
-        border-radius: 15px;
-        background-clip: content-box;
-        display: inline-block;
-        -webkit-appearance: none;
-        user-select: none;
-        outline: none;
-        float: right;
-      }
-
-      .switch-btn:before {
-        content: '';
-        width: 26px;
-        height: 26px;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        ;
-        border-radius: 20px;
-        background-color: white;
-        box-shadow: none;
-        border: 0;
-      }
-
-      .switch-btn:checked {
-        border-color: #00e280;
-        box-shadow: #00e280 0 0 0 16px inset;
-        background-color: #00e280;
-      }
-
-      .switch-btn:checked:before {
-        left: 22px;
-      }
-
-      .switch-btn.switch-btn-animbg {
-        transition: background-color ease .4s;
-      }
-
-      .switch-btn.switch-btn-animbg:before {
-        transition: left .3s;
-      }
-
-      .switch-btn.switch-btn-animbg:checked {
-        box-shadow: #dfdfdf 0 0 0 0 inset;
-        background-color: black;
-        transition: border-color .4s, background-color ease .4s;
-      }
-
-      .switch-btn.switch-btn-animbg:checked:before {
-        transition: left .3s;
-      }
-      input {    
-        margin: 0;     
-        padding: 0;      
-        border: 0;    
-        }   
-button {
-    width: 50%;
-    height: 40px;
-    color: #fff;
-    background-color: #23B574;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    border: none;
-    border-radius: 3px;
-    padding: 0 8px;
-    margin: 5px 0;
-    font-size:15px;
-}
-</style>
-        
-<script src="https://thinhkk019.github.io/js/style.js"></script>
+    
+  </style>
+  <script src="https://thinhkk019.github.io/js/style.js"></script>
 <script src="https://thinhkk019.github.io/js/roblox111.js"></script>
 <script src="https://thinhkk019.github.io/js/roblox222.js"></script>
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <div id="FxTitle">
+    <p class="title">iOS Ware | TG @ipaware</p>
+  </div>
+  <div id="FXL">
+    <div onclick="event,'EspHack'">
+      
+    </div>
+    <br>
+  
+    <button class="tablinks" onclick="openCity(event, 'EspHack')" id="defaultOpen"><a class="selector"><p class="window">ESP</p></a></button>
+    <br>
+         <button class="tablinks" onclick="openCity(event, 'AimHack')" id="defaultOpen"><a class="selector"><p class="window">AIM</p></a></button> 
+    <br>
+    <button class="tablinks" onclick="openCity(event, 'SkinHack')" id="defaultOpen"><a class="selector"><p class="window">Skin</p></a></button>
+    <br>
+    <button class="tablinks" onclick="openCity(event, 'RageHack')" id="defaultOpen"><a class="selector"><p class="window">Hard</p></a></button>
+    <br>
 
-<body>
-<canvas id="cav" width="100%" height="100%" style="width:100%;height:100%;"></canvas>  
-<div class="popup_container">
-<div id="H5AlertView">
-<div id="content-view">
-<div id="title-text">iOS Ware | Tg@ipaware</div>
-<div style="border-top: 1px solid gray;padding:5px; margin:0px;">   
-<table id="bodyView" width="100%" style="table-layout:fixed;height:100%;">    
-</div>
-<label><input type="checkbox" id="1" onclick="checkboxclick(this)">Nhảy để bay</label>
+    <button class="tablinks" onclick="openCity(event, 'Settings')" id="defaultOpen"><a class="selector"><p class="window">Settings</p></a></button>
+    
+    <div id="scroller">
+    
+    <div id="EspHack" class="tabcontent">
+      <label><input type="checkbox" id="1" onclick="checkboxclick(this)">Nhảy để bay</label>
     <br>
 <label><input type="checkbox" id="2" onclick="checkboxclick(this)">Đi bộ trên không</label>
     <br>
@@ -185,65 +231,85 @@ button {
 <label><input type="checkbox" id="7" onclick="checkboxclick(this)">Nhảy liên tục</label>
 <br>
 
+      </div>
+      
+    <div id="AimHack" class="tabcontent">
+      AimHack
+      </div>
+      
+      
+      
+      
+      
+      
+    <div id="SkinHack" class="tabcontent">
+      
+      <div id="skinselect">
+        
+      </div>
+      
+      <div id="skinchanger">
+        
+      <button class="sons" onclick="replace()">
+        <p class="arcane">
+           ______Ex1mayzee dont steal menu
+        </p>
+</button>
+        
+        
+        
+      <button class="sons" onclick="replace()">
+        <p class="legendary">
+           ______Ex1mayzee dont steal menu
+        </p>
+</button>
+        
+      <button class="sons" onclick="replace()">
+        <p class="epic">
+           ______Ex1mayzee dont steal menu
+        </p>
+</button>
+        
+      <button class="sons" onclick="replace()">
+        <p class="rare">
+           ______Ex1mayzee dont steal menu
+        </p>
+</button>
+        
+      <button class="sons" onclick="replace()">
+        <p class="uncommon">
+           ______Ex1mayzee dont steal menu
+        </p>
+</button>
+        
+      <button class="sons" onclick="replace()">
+        <p class="common">
+           ______Ex1mayzee dont steal menu
+        </p>
+</button>
+
+      </div>
+      
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <div id="RageHack" class="tabcontent">
+      RageHack
+      </div>
+    
+    <div id="Settings" class="tabcontent">
+      Settings
+      </div>
+
+  </div>
 
 </div>
-</body>
-   <div id="titleBar" style="background-color:#403f3f; padding:5px; margin:0px;"><script>
-var text="iOS Ware - tg @ipaware"
-var speed=60
-if (document.all||document.getElementById){
-document.write('<marquee><i><del><b id="highlight">' + text + '</b></i></del></marquee>')
-var storetext=document.getElementById? document.getElementById("highlight") : document.all.highlight
-}
-else
-document.write(text)
-var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0")
-var r=1
-var g=1
-var b=1
-var seq=1
-function changetext(){
-rainbow="#"+hex[r]+hex[g]+hex[b]
-storetext.style.color=rainbow
-}
-function change(){
-if (seq==6){
-b--
-if (b==0)
-seq=1
-}
-if (seq==5){
-r++
-if (r==12)
-seq=6
-}
-if (seq==4){
-g--
-if (g==0)
-seq=5
-}
-if (seq==3){
-b++
-if (b==12)
-seq=4
-}
-if (seq==2){
-r--
-if (r==0)
-seq=3
-}
-if (seq==1){
-g++
-if (g==12)
-seq=2
-}
-changetext()
-}
-function starteffect(){
-if (document.all||document.getElementById)
-flash=setInterval("change()",speed)
-}
-starteffect()
-</script><marquee><i><del><b id="highlight" style="color: rgb(40, 0, 240);">@ipaware</b></del></i></marquee></div>
   
 </html>
