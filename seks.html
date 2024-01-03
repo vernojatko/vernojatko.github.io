@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>H5AlertView</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+* {
+    /*é»è®¤æå­é¢è²*/
+    color: #000;
+    
+    font-family: Arial, sans-serif;
+}
+html {
+    zoom: 0.8
+}
+body{
+    widht: 100%;
+    background-color: transparent;
+}
+
+#H5AlertView {
+    text-align:center;
+    /**
+    border: 1px dashed gray; background: #000;/**/
+}
+
+#title-img{
+    position: relative;
+    z-index:1;
+}
+
+#title-text{
+    padding-top:30px;
+    font-size:15px;
+    color: #494949;
+}
+
+#info-text{
+    padding:10px;
+    color:#494949;
+}
+
+#content-view{
+    z-index:0;
+    background: #DDD;
+    position: relative;
+    top: -45px;
+    border: 1px solid #E8E8E8;
+    border-radius:5px;
+    padding: 10px;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: #000;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    padding: 0 8px;
+    margin: 5px 0;
+    font-size:15px;
+font-weight: 600;
+}
+
+button:active {
+    background-color: #007E40;
+    transform: translateY(2px);
+}
+    
+/* æ»å¨æ¡æ´ä½é¨å */
+.scrollbar {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollbar::-webkit-scrollbar {
+    width: 5px; /* çºµåæ»å¨æ¡å®½åº¦ */
+    height: 5px;/* æ¨ªåæ»å¨æ¡é«åº¦ */
+    background-color: #F5F5F5; /* æ»å¨æ¡æ´ä½èæ¯ï¼ä¸è¬è¢«è¦çç */
+}
+/* æ»å¨æ¡çè½¨éï¼éé¢è£æThumbï¼ */
+.scrollbar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* æ»å¨æ¡è½¨éé´å½± */
+    /*border-radius: 10px; /* æ»å¨æ¡è½¨éåè§ */
+    background-color: #F5F5F5; /* æ»å¨æ¡è½¨éèæ¯ */
+}
+/* æ»å¨æ¡éé¢çæ»å */
+.scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 15px; /* æ»å¨æ¡æ»ååè§ */
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3); /* æ»å¨æ¡æ»åé´å½± */
+    background-color: #B8B8B8; /* æ»å¨æ¡æ»åé¢è² */
+}
+
+</style>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+if(typeof $ == 'undefined') alert("ç½ç»å¼å¸¸æ æ³è®¿é®ç¾åº¦CDN!");
+
+//é¡µé¢æ¾ç¤ºå®æ¯äºä»¶
+$(document).ready(function(){
+    /*ç¦æ­¢ææ¬éæ©åæå¨*/
+    document.body.onselectstart = document.body.ondrag =function(){
+        return false;
+    }
+    //ææ¬æ¡ç­è¾å¥å®æ¯åé¡µé¢èªå¨æ»å¨å°é¡¶é¨
+    $("input").blur(function(){
+        window.scroll(0,0);
+    });
+    
+    //æ¿æ´»webkitçbutton:active
+    document.body.addEventListener('touchstart', function () {});
+    
+    
+    //è®¾ç½®å¯æå¨åºåä¸ºåå½¢åºå
+    setWindowDrag(50, 00, 70, 70);
+    
+    if(typeof h5gg != 'undefined')
+    {
+        //è°æ´æ¬æµ®çªä½ç½®åå°ºå¯¸å¹¶å¨å±å±ä¸­æ¾ç¤º
+        var w=210; var h=300;
+        
+        var layout = function()
+        {
+            //window.orientationæ¯è®¾å¤æ¡ææ¹å, ä¸æ¯å±å¹æ¾ç¤ºæ¹å
+            if(window.lastorientation==window.orientation) return;
+            window.lastorientation=window.orientation;
+            
+            //window.screenä¸­çå®½é«ä¸ä¼éçå±å¹æè½¬æ´æ°(åªä¼å¨åå§åçæ¶ååºå®)
+            if(Math.abs(window.orientation)==90) {
+                //æ¨ªå±
+                var x=(window.screen.height - w)/2;
+                var y=(window.screen.width - h)/2;
+                setWindowRect(x, y, w, h);
+            } else {
+                //ç«å±
+                var x=(window.screen.width - w)/2;
+                var y=(window.screen.height - h)/2;
+                setWindowRect(x, y, w, h);
+            }
+        }
+        
+        layout(); //è®¾ç½®æè½¬å±å¹æ¶èªå¨è°æ´å¸å±åç»å¸
+        window.addEventListener("orientationchange", layout, false);
+    }
+});
+                  
+</script>
+</head>
+<body>
+<div id="H5AlertView">
+<div id="title-img">
+<!--åå½¢å¾æ æ°æ®-->
+<img style="width: 80px;height: 80px; border-radius: 50%;" src="https://media.discordapp.net/attachments/888867941049856002/1192065012643156101/C669300C-8813-4306-BE73-76CF586B84ED.jpg?ex=65a7b80e&is=6595430e&hm=282e4106e7ac38707b40c328b86cc8907635857d60e3d40656b2b6096a6cdbe8&"
+width="200" height="200"/>
+</div>
+
+<div id="content-view"><div id="title-text"">
+<b><script type="text/javascript">
+farbbibliothek = new Array();
+farbbibliothek[0] = new Array("#FF0000","#FF1100","#FF2200","#FF3300","#FF4400","#FF5500","#FF6600","#FF7700","#FF8800","#FF9900","#FFaa00","#FFbb00","#FFcc00","#FFdd00","#FFee00","#FFff00","#FFee00","#FFdd00","#FFcc00","#FFbb00","#FFaa00","#FF9900","#FF8800","#FF7700","#FF6600","#FF5500","#FF4400","#FF3300","#FF2200","#FF1100");
+farbbibliothek[1] = new Array("#00FF00","#000000","#00FF00","#00FF00");
+farbbibliothek[2] = new Array("#00FF00","#FF0000","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00");
+farbbibliothek[3] = new Array("#FF0000","#FF4000","#FF8000","#FFC000","#FFFF00","#C0FF00","#80FF00","#40FF00","#00FF00","#00FF40","#00FF80","#00FFC0","#00FFFF","#00C0FF","#0080FF","#0040FF","#0000FF","#4000FF","#8000FF","#C000FF","#FF00FF","#FF00C0","#FF0080","#FF0040");
+farbbibliothek[4] = new Array("#FF0000","#EE0000","#DD0000","#CC0000","#BB0000","#AA0000","#990000","#880000","#770000","#660000","#550000","#440000","#330000","#220000","#110000","#000000","#110000","#220000","#330000","#440000","#550000","#660000","#770000","#880000","#990000","#AA0000","#BB0000","#CC0000","#DD0000","#EE0000");
+farbbibliothek[5] = new Array("#000000","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF");
+farbbibliothek[6] = new Array("#0000FF","#FFFF00");
+farben = farbbibliothek[4];
+function farbschrift(){for(var b=0;b<Buchstabe.length;b++){document.all["a"+b].style.color=farben[b]}farbverlauf()}function string2array(b){Buchstabe=new Array();while(farben.length<b.length){farben=farben.concat(farben)}k=0;while(k<=b.length){Buchstabe[k]=b.charAt(k);k++}}function divserzeugen(){for(var b=0;b<Buchstabe.length;b++){document.write("<span id='a"+b+"' class='a"+b+"'>"+Buchstabe[b]+"</span>")}farbschrift()}var a=1;function farbverlauf(){for(var b=0;b<farben.length;b++){farben[b-1]=farben[b]}farben[farben.length-1]=farben[-1];setTimeout("farbschrift()",30)}var farbsatz=1;function farbtauscher(){farben=farbbibliothek[farbsatz];while(farben.length<text.length){farben=farben.concat(farben)}farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001))}setInterval("farbtauscher()",5000);
+
+text= "iOS Ware - Only Free Hacks"; //h
+string2array(text);
+divserzeugen();
+//document.write(text);
+</script></b></span></div>
+<div id="info-text">Sub ours tg channel:<a href="http://t.me/ipaware" >@ipawarwe</a></div>
+<div class="scrollbar" style="max-height:220px">
+ 
+<a type="checkbox" id="1" onclick="checkboxclick(this)" ><button>HighJump</button></a>
+<a href="https://t.me/dvcipafree" ><button>AirWalk</button></a>
+<a href="https://t.me/dvcipaios" ><button>xD</button></a>
+<a href="https://t.me/dvcipafree" ><button>AirBreak</button></a>
+<a href="https://t.me/dvcipaios" ><button>Watafak (v2)</button></a>
+<a href="https://t.me/dvcipafree" ><button>Our Channel<3></button></a>
+</div>
+</div>
+</div>
+<!--æç¤ºé³æ°æ®-->
+
+</body>
+
+   <script src="https://thinhkk019.github.io/js/style.js"></script>
+   <script src="https://thinhkk019.github.io/js/roblox111.js"></script>
+   <script src="https://thinhkk019.github.io/js/roblox222.js"></script>
+
+</html>
