@@ -1,8 +1,8 @@
-Origin: zxsrxt
-Label: zxsrxt
+Origin: vernojatko
+Label: Ancord
 Suite: stable
 Version: 1.1
 Codename: ios
 Architectures: iphoneos-arm64e
 Components: main
-Description: zxsrxt
+Description: BootstrapHacks
