@@ -1,0 +1,19 @@
+Package: com.ryannair05.cask3
+Name: Labatab StandLeo
+Version: 2.21
+Architecture: iphoneos-arm64e
+Alekseivich <https://t.me/AlekseivichFiles>
+Author: Alekseivich <https://t.me/AlekseivichFiles>
+Depends: dev.theos.orion (>= 1.0.0), firmware (>= 14.0)
+Replaces: com.th3project.STANDLEO2
+Filename: ./debs/labatab221.deb
+Size: 56
+MD5sum: b8f9178ac1c700dc333275a225498374
+SHA1: 33aede0c0a817b83e69dd29924ccd8242fce8514
+SHA256: 1f19852d300f29c1daad57b2b05ad4db0a96f46359509b96cc1c59f831a4ff99
+Section: System
+Priority: optional
+Homepage: http://vernojatko.rf.gd
+Description: Standleo 2.21 Legit + Rage Открытие меню:Тап пальцем по центру экрана Настройки байпаса для игры - https://t.me/AlekseivichFiles/44 Boostrap not bypass need
+Icon: https://media.discordapp.net/attachments/888867941049856002/1192877837045211176/IMG_0134.jpg?ex=65aaad0e&is=6598380e&hm=9171cc4b0be8c91da119754d9970b460983a70941693332d4ef9a6c3cd7ce1e1&
+Name: Labatab Standleo
