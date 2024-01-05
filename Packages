@@ -1,4 +1,4 @@
-Package: com.ryannair05.cask3
+Package: ватафак
 Name: Labatab StandLeo
 Version: 2.21
 Architecture: iphoneos-arm64e
@@ -17,3 +17,112 @@ Homepage: http://vernojatko.rf.gd
 Description: Standleo 2.21 Legit + Rage Открытие меню:Тап пальцем по центру экрана Настройки байпаса для игры - https://t.me/AlekseivichFiles/44 Boostrap not bypass need
 Icon: https://media.discordapp.net/attachments/888867941049856002/1192877837045211176/IMG_0134.jpg?ex=65aaad0e&is=6598380e&hm=9171cc4b0be8c91da119754d9970b460983a70941693332d4ef9a6c3cd7ce1e1&
 Name: Labatab Standleo
+
+Package: me.jjolano.fmwk.hookkit
+Version: 1.0.15
+Architecture: iphoneos-arm64e
+Maintainer: jjolano
+Installed-Size: 172
+Pre-Depends: rootless-compat(>= 0.1)
+Depends: firmware (>= 8.0), me.jjolano.fmwk.modulous, me.jjolano.fmwk.rootbridge
+Filename: me.jjolano.fmwk.hookkit_1.0.15_iphoneos-arm64e-1.deb
+Size: 17630
+MD5sum: 5a9c2c03f661a0493cc936865c732e19
+SHA1: c4d17085e5ddc96d6399a95858991d9245028f78
+SHA256: 010629ac078614434eaee8294cecfe4a7ffc8a3e3b4e485d6fddf87aeeb8ead5
+Section: shadow
+Description: An iOS developer framework for unified hooking methods.
+Tag: role::developer
+Author: jjolano
+Name: HookKit Framework
+
+Package: me.jjolano.fmwk.modulous
+Version: 1.0.8
+Architecture: iphoneos-arm64e
+Maintainer: jjolano
+Installed-Size: 168
+Pre-Depends: rootless-compat(>= 0.1)
+Depends: firmware (>= 8.0)
+Filename: debs/me.jjolano.fmwk.modulous_1.0.8_iphoneos-arm64e-1.deb
+Size: 8358
+MD5sum: fb8020f35b249c061d152e6f2ed0b4b5
+SHA1: 240f28f7ec8b580cfb548ba9741a6644a0f56b3b
+SHA256: 2c0aa40bd79ed2d45228d3108e5055737c7d3b355ea39b2162c8afe8960eea39
+Section: shadow
+Description: An iOS developer framework for modular software.
+Tag: role::developer
+Author: jjolano
+Name: Modulous Framework
+
+Package: me.jjolano.fmwk.rootbridge
+Version: 1.0.1
+Architecture: iphoneos-arm64e
+Maintainer: jjolano
+Installed-Size: 168
+Pre-Depends: rootless-compat(>= 0.1)
+Depends: firmware (>= 8.0)
+Filename: debs/me.jjolano.fmwk.rootbridge_1.0.1_iphoneos-arm64e-1.deb
+Size: 5684
+MD5sum: bba72ba0941faf3fc93f3c9b24948c58
+SHA1: 7a3a12117161d7511b3a13017e543938d56d985d
+SHA256: 99ce7c01a6fffa8d1c817738b7e73b496a4896b17a36e6512be3cb72a2407104
+Section: shadow
+Description: An iOS developer framework for rootless tweak development.
+Tag: role::developer
+Author: jjolano
+Name: RootBridge Framework
+
+Package: me.jjolano.hkmodule.fishhook
+Version: 1.0.8
+Architecture: iphoneos-arm64e
+Maintainer: jjolano
+Installed-Size: 172
+Pre-Depends: rootless-compat(>= 0.1), me.jjolano.fmwk.hookkit
+Filename: debs/me.jjolano.hkmodule.fishhook_1.0.8_iphoneos-arm64e-1.deb
+Size: 9152
+MD5sum: 43d29f41331e3405f8e590016f5cce4d
+SHA1: 89e9b7e2fb9bef30167f36b7bbb5bf5cf447bb48
+SHA256: 612bc94b9a70d10be255645cd0750b04ffe3690a18ed6dd54affae18fd19f0cf
+Section: shadow
+Description: This module provides fishhook library support for HookKit Framework.
+Author: jjolano
+Name: HookKit Module (fishhook)
+
+Package: me.jjolano.hkmodule.substrate
+Version: 1.0.8
+Architecture: iphoneos-arm64e
+Maintainer: jjolano
+Installed-Size: 168
+Pre-Depends: rootless-compat(>= 0.1), me.jjolano.fmwk.hookkit
+Depends: mobilesubstrate
+Filename: debs/me.jjolano.hkmodule.substrate_1.0.8_iphoneos-arm64e.deb
+Size: 5906
+MD5sum: c34aafafb95361e85cdd73e1fb3565dd
+SHA1: 541dd9289b8a711312ad3c3b667d66588c3487e9
+SHA256: 4e5e737e18b52f2648230d826e56d4dee2a5b57be201c6a0287067af6663668e
+Section: shadow
+Description: This module provides the Cydia Substrate API for HookKit Framework.
+Author: jjolano
+Name: HookKit Module (Cydia Substrate)
+
+Package: me.jjolano.shadow
+Version: 3.7.6
+Architecture: iphoneos-arm64e
+Maintainer: jjolano
+Installed-Size: 1076
+Pre-Depends: rootless-compat(>= 0.1), dpkg
+Depends: firmware (>= 8.0), com.opa334.altlist, com.opa334.libsandy, me.jjolano.fmwk.hookkit, me.jjolano.hkmodule.substrate, me.jjolano.fmwk.rootbridge
+Recommends: mobilesubstrate, preferenceloader, me.jjolano.hkmodule.fishhook
+Suggests: com.ps.injectionfoundation
+Conflicts: me.jjolano.shadow.beta, me.jjolano.shadow.legacy
+Replaces: me.jjolano.shadow.beta
+Provides: me.jjolano.shadow.beta
+Filename: me.jjolano.shadow_3.7.6_iphoneos-arm64e-1.deb
+Size: 138350
+MD5sum: 7e34269916982830fddbfcaffaa25513
+SHA1: cdd3bf619b420fb4ff4a370d63190b9b417badb6
+SHA256: 4b2a7bc4a82b3b49836f17df7ac35a9835bbd46ded4606fa025d0e6c9b5760a6
+Section: shadow
+Description: Bypass support Bootstrap шооок бутстрапе суппорт втф
+Author: jjolano
+Name: Shadow Bypass Watafak??
