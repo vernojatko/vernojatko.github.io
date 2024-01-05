@@ -6,7 +6,7 @@ Alekseivich <https://t.me/AlekseivichFiles>
 Author: Alekseivich <https://t.me/AlekseivichFiles>
 Depends: dev.theos.orion (>= 1.0.0), firmware (>= 14.0)
 Replaces: com.th3project.STANDLEO2
-Filename: ./debs/labatab221.deb
+Filename: labatab221.deb
 Size: 56
 MD5sum: b8f9178ac1c700dc333275a225498374
 SHA1: 33aede0c0a817b83e69dd29924ccd8242fce8514
