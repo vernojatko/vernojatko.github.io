@@ -24,7 +24,7 @@ Name: HexPUBGM Bootstrap Support [iOS 16]
 Version: 1.0
 Architecture: iphoneos-arm64e
 hex <https://t.me/hexipa>
-Author: Alekseivich <https://t.me/AlekseivichFiles>
+Author: hex <https://t.me/hexipa>
 Depends: dev.theos.orion (>= 1.0.0), firmware (>= 14.0)
 Replaces: com.tencent.ig
 Filename: hexipa.pubg.hex_1.0_iphoneos-arm64e.deb
